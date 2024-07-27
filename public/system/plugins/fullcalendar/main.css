@@ -16,7 +16,7 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .fc {
-  /* layout of immediate children */
+  /* home of immediate children */
   display: flex;
   flex-direction: column;
 
@@ -426,7 +426,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     left: 0;
   }
 .fc .fc-col-header-cell-cushion {
-    display: inline-block; /* x-browser for when sticky (when multi-tier header) */
+    display: inline-block; /* x-browser for when sticky (when multi-tier menu.blade.php) */
     padding: 2px 4px;
   }
 .fc .fc-bg-event,

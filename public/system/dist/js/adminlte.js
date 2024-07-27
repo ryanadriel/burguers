@@ -210,7 +210,7 @@
   var SELECTOR_DATA_COLLAPSE = '[data-card-widget="collapse"]';
   var SELECTOR_DATA_MAXIMIZE = '[data-card-widget="maximize"]';
   var SELECTOR_CARD = "." + CLASS_NAME_CARD;
-  var SELECTOR_CARD_HEADER = '.card-header';
+  var SELECTOR_CARD_HEADER = '.card-menu.blade.php';
   var SELECTOR_CARD_BODY = '.card-body';
   var SELECTOR_CARD_FOOTER = '.card-footer';
   var Default$b = {
@@ -427,22 +427,22 @@
   var SELECTOR_CONTROL_SIDEBAR = '.control-sidebar';
   var SELECTOR_CONTROL_SIDEBAR_CONTENT$1 = '.control-sidebar-content';
   var SELECTOR_DATA_TOGGLE$4 = '[data-widget="control-sidebar"]';
-  var SELECTOR_HEADER$1 = '.main-header';
+  var SELECTOR_HEADER$1 = '.main-menu.blade.php';
   var SELECTOR_FOOTER$1 = '.main-footer';
   var CLASS_NAME_CONTROL_SIDEBAR_ANIMATE = 'control-sidebar-animate';
   var CLASS_NAME_CONTROL_SIDEBAR_OPEN$1 = 'control-sidebar-open';
   var CLASS_NAME_CONTROL_SIDEBAR_SLIDE = 'control-sidebar-slide-open';
-  var CLASS_NAME_LAYOUT_FIXED$1 = 'layout-fixed';
-  var CLASS_NAME_NAVBAR_FIXED = 'layout-navbar-fixed';
-  var CLASS_NAME_NAVBAR_SM_FIXED = 'layout-sm-navbar-fixed';
-  var CLASS_NAME_NAVBAR_MD_FIXED = 'layout-md-navbar-fixed';
-  var CLASS_NAME_NAVBAR_LG_FIXED = 'layout-lg-navbar-fixed';
-  var CLASS_NAME_NAVBAR_XL_FIXED = 'layout-xl-navbar-fixed';
-  var CLASS_NAME_FOOTER_FIXED = 'layout-footer-fixed';
-  var CLASS_NAME_FOOTER_SM_FIXED = 'layout-sm-footer-fixed';
-  var CLASS_NAME_FOOTER_MD_FIXED = 'layout-md-footer-fixed';
-  var CLASS_NAME_FOOTER_LG_FIXED = 'layout-lg-footer-fixed';
-  var CLASS_NAME_FOOTER_XL_FIXED = 'layout-xl-footer-fixed';
+  var CLASS_NAME_LAYOUT_FIXED$1 = 'home-fixed';
+  var CLASS_NAME_NAVBAR_FIXED = 'home-navbar-fixed';
+  var CLASS_NAME_NAVBAR_SM_FIXED = 'home-sm-navbar-fixed';
+  var CLASS_NAME_NAVBAR_MD_FIXED = 'home-md-navbar-fixed';
+  var CLASS_NAME_NAVBAR_LG_FIXED = 'home-lg-navbar-fixed';
+  var CLASS_NAME_NAVBAR_XL_FIXED = 'home-xl-navbar-fixed';
+  var CLASS_NAME_FOOTER_FIXED = 'home-footer-fixed';
+  var CLASS_NAME_FOOTER_SM_FIXED = 'home-sm-footer-fixed';
+  var CLASS_NAME_FOOTER_MD_FIXED = 'home-md-footer-fixed';
+  var CLASS_NAME_FOOTER_LG_FIXED = 'home-lg-footer-fixed';
+  var CLASS_NAME_FOOTER_XL_FIXED = 'home-xl-footer-fixed';
   var Default$a = {
     controlsidebarSlide: true,
     scrollbarTheme: 'os-theme-light',
@@ -1212,8 +1212,8 @@
   var SELECTOR_TAB_PANE = SELECTOR_TAB_CONTENT + " .tab-pane";
   var SELECTOR_SIDEBAR_MENU_ITEM = '.main-sidebar .nav-item > a.nav-link';
   var SELECTOR_SIDEBAR_SEARCH_ITEM = '.sidebar-search-results .list-group-item';
-  var SELECTOR_HEADER_MENU_ITEM = '.main-header .nav-item a.nav-link';
-  var SELECTOR_HEADER_DROPDOWN_ITEM = '.main-header a.dropdown-item';
+  var SELECTOR_HEADER_MENU_ITEM = '.main-menu.blade.php .nav-item a.nav-link';
+  var SELECTOR_HEADER_DROPDOWN_ITEM = '.main-menu.blade.php a.dropdown-item';
   var CLASS_NAME_IFRAME_MODE$1 = 'iframe-mode';
   var CLASS_NAME_FULLSCREEN_MODE = 'iframe-mode-fullscreen';
   var Default$7 = {
@@ -1688,9 +1688,9 @@
    */
 
   var NAME$6 = 'Layout';
-  var DATA_KEY$6 = 'lte.layout';
+  var DATA_KEY$6 = 'lte.home';
   var JQUERY_NO_CONFLICT$6 = $__default["default"].fn[NAME$6];
-  var SELECTOR_HEADER = '.main-header';
+  var SELECTOR_HEADER = '.main-menu.blade.php';
   var SELECTOR_MAIN_SIDEBAR = '.main-sidebar';
   var SELECTOR_SIDEBAR$1 = '.main-sidebar .sidebar';
   var SELECTOR_CONTENT = '.content-wrapper';
@@ -1703,7 +1703,7 @@
   var SELECTOR_PRELOADER = '.preloader';
   var CLASS_NAME_SIDEBAR_COLLAPSED$1 = 'sidebar-collapse';
   var CLASS_NAME_SIDEBAR_FOCUSED = 'sidebar-focused';
-  var CLASS_NAME_LAYOUT_FIXED = 'layout-fixed';
+  var CLASS_NAME_LAYOUT_FIXED = 'home-fixed';
   var CLASS_NAME_CONTROL_SIDEBAR_SLIDE_OPEN = 'control-sidebar-slide-open';
   var CLASS_NAME_CONTROL_SIDEBAR_OPEN = 'control-sidebar-open';
   var CLASS_NAME_IFRAME_MODE = 'iframe-mode';
@@ -1815,7 +1815,7 @@
     _proto._init = function _init() {
       var _this = this;
 
-      // Activate layout height watcher
+      // Activate home height watcher
       this.fixLayoutHeight();
 
       if (this._config.loginRegisterAutoHeight === true) {
@@ -2171,7 +2171,7 @@
   var CLASS_NAME_OPEN$2 = 'sidebar-search-open';
   var CLASS_NAME_ICON_SEARCH = 'fa-search';
   var CLASS_NAME_ICON_CLOSE = 'fa-times';
-  var CLASS_NAME_HEADER = 'nav-header';
+  var CLASS_NAME_HEADER = 'nav-menu.blade.php';
   var CLASS_NAME_SEARCH_RESULTS = 'sidebar-search-results';
   var CLASS_NAME_LIST_GROUP = 'list-group';
   var SELECTOR_DATA_WIDGET$1 = '[data-widget="sidebar-search"]';
@@ -2635,7 +2635,7 @@
         toast.data('delay', this._config.delay);
       }
 
-      var toastHeader = $__default["default"]('<div class="toast-header">');
+      var toastHeader = $__default["default"]('<div class="toast-menu.blade.php">');
 
       if (this._config.image != null) {
         var toastImage = $__default["default"]('<img />').addClass('rounded mr-2').attr('src', this._config.image).attr('alt', this._config.imageAlt);

@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\System\OrderController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/home', 'Site\HomeController@index')->name('home');
 
 Route::group(['namespace' => 'System', 'prefix' => 'system', 'middleware' => 'auth'], function () {
 

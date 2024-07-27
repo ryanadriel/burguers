@@ -42,7 +42,7 @@ var _modal = $(
 	'<div class="modal fade dtr-bs-modal" role="dialog">'+
 		'<div class="modal-dialog" role="document">'+
 			'<div class="modal-content">'+
-				'<div class="modal-header">'+
+				'<div class="modal-menu.blade.php">'+
 					'<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
 				'</div>'+
 				'<div class="modal-body"/>'+
@@ -59,9 +59,9 @@ _display.modal = function ( options ) {
 		else {
 			if ( ! update ) {
 				if ( options && options.header ) {
-					var header = _modal.find('div.modal-header');
+					var header = _modal.find('div.modal-menu.blade.php');
 					var button = header.find('button').detach();
-					
+
 					header
 						.empty()
 						.append( '<h4 class="modal-title">'+options.header( row )+'</h4>' )

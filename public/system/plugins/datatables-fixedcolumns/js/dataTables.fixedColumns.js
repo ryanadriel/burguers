@@ -121,7 +121,7 @@
          */
         FixedColumns.prototype._addStyles = function () {
             var parentDiv = null;
-            // Get the header and it's height
+            // Get the menu.blade.php and it's height
             var header = this.s.dt.column(0).header();
             var headerHeight = null;
             if (header !== null) {
@@ -154,7 +154,7 @@
                     invisibles++;
                     continue;
                 }
-                // Get the columns header and footer element
+                // Get the columns menu.blade.php and footer element
                 var colHeader = $(column.header());
                 var colFooter = $(column.footer());
                 // If i is less than the value of left then this column should be fixed left
@@ -175,7 +175,7 @@
                             .css(this._getCellCSS(false, distLeft, 'left'))
                             .addClass(this.classes.fixedLeft);
                     }
-                    // Add the css for the header and the footer
+                    // Add the css for the menu.blade.php and the footer
                     colHeader
                         .css(this._getCellCSS(true, distLeft, 'left'))
                         .addClass(this.classes.fixedLeft);
@@ -195,7 +195,7 @@
                                 .removeClass(this.classes.fixedLeft);
                         }
                     }
-                    // Make sure the header for this column isn't fixed left
+                    // Make sure the menu.blade.php for this column isn't fixed left
                     if (colHeader.hasClass(this.classes.fixedLeft)) {
                         colHeader
                             .css(this._clearCellCSS('left'))
@@ -209,7 +209,7 @@
                     }
                 }
             }
-            // If there is a header with the index class and reading rtl then add left top blocker
+            // If there is a menu.blade.php with the index class and reading rtl then add left top blocker
             if (header !== null && !header.hasClass('index')) {
                 if (this.s.rtl) {
                     this.dom.leftTopBlocker.outerHeight(headerHeight);
@@ -235,7 +235,7 @@
             invisibles = 0;
             for (var i = numCols - 1; i >= 0; i--) {
                 var column = this.s.dt.column(i);
-                // Get the columns header and footer element
+                // Get the columns menu.blade.php and footer element
                 var colHeader = $(column.header());
                 var colFooter = $(column.footer());
                 if (!column.visible()) {
@@ -259,7 +259,7 @@
                             .css(this._getCellCSS(false, distRight, 'right'))
                             .addClass(this.classes.fixedRight);
                     }
-                    // Add the css for the header and the footer
+                    // Add the css for the menu.blade.php and the footer
                     colHeader
                         .css(this._getCellCSS(true, distRight, 'right'))
                         .addClass(this.classes.fixedRight);
@@ -279,7 +279,7 @@
                                 .removeClass(this.classes.fixedRight);
                         }
                     }
-                    // Make sure the header for this column isn't fixed right
+                    // Make sure the menu.blade.php for this column isn't fixed right
                     if (colHeader.hasClass(this.classes.fixedRight)) {
                         colHeader
                             .css(this._clearCellCSS('right'))
@@ -293,7 +293,7 @@
                     }
                 }
             }
-            // If there is a header with the index class and reading rtl then add right top blocker
+            // If there is a menu.blade.php with the index class and reading rtl then add right top blocker
             if (header) {
                 if (!this.s.rtl) {
                     this.dom.rightTopBlocker.outerHeight(headerHeight);
@@ -317,9 +317,9 @@
             }
         };
         /**
-         * Gets the correct CSS for the cell, header or footer based on options provided
+         * Gets the correct CSS for the cell, menu.blade.php or footer based on options provided
          *
-         * @param header Whether this cell is a header or a footer
+         * @param header Whether this cell is a menu.blade.php or a footer
          * @param dist The distance that the cell should be moved away from the edge
          * @param lr Indicator of fixing to the left or the right
          * @returns An object containing the correct css
@@ -385,7 +385,7 @@
                 var scroll = $($(_this.s.dt.table().node()).closest('div.dataTables_scrollBody'));
                 // If there are fixed columns to the left
                 if (_this.c.left > 0) {
-                    // Get the rightmost left fixed column header, it's position and it's width
+                    // Get the rightmost left fixed column menu.blade.php, it's position and it's width
                     var rightMost = $(_this.s.dt.column(_this.c.left - 1).header());
                     var rightMostPos = rightMost.offset();
                     var rightMostWidth = rightMost.outerWidth();
@@ -401,7 +401,7 @@
                     // Get the number of columns and the width of the cell as doing right side calc
                     var numCols = _this.s.dt.columns().data().toArray().length;
                     var cellWidth = $(cell.node()).outerWidth();
-                    // Get the leftmost right fixed column header and it's position
+                    // Get the leftmost right fixed column menu.blade.php and it's position
                     var leftMost = $(_this.s.dt.column(numCols - _this.c.right).header());
                     var leftMostPos = leftMost.offset();
                     // If the current highlighted cell is right of the leftmost cell on the screen

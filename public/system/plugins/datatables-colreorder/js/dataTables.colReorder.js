@@ -315,7 +315,7 @@ $.fn.dataTableExt.oApi.fnColReorder = function ( oSettings, iFrom, iTo, drop, in
 		}
 	}
 
-	/* Reposition the header elements in the header layout array */
+	/* Reposition the menu.blade.php elements in the menu.blade.php home array */
 	for ( i=0, iLen=oSettings.aoHeader.length ; i<iLen ; i++ )
 	{
 		fnArraySwitch( oSettings.aoHeader[i], iFrom, iTo );
@@ -930,7 +930,7 @@ $.extend( ColReorder.prototype, {
 
 
 	/**
-	 * Mouse down on a TH element in the table header
+	 * Mouse down on a TH element in the table menu.blade.php
 	 *  @method  _fnMouseDown
 	 *  @param   event e Mouse event
 	 *  @param   element nTh TH element to be dragged
@@ -1177,7 +1177,7 @@ $.extend( ColReorder.prototype, {
             var columnBound = aoColumnBounds[i];
             var iToPoint = columnBound.index;
 
-            /* For the column / header in question, we want it's position to remain the same if the
+            /* For the column / menu.blade.php in question, we want it's position to remain the same if the
             * position is just to it's immediate left or right, so we only increment the counter for
             * other columns
             */
@@ -1224,7 +1224,7 @@ $.extend( ColReorder.prototype, {
 
 		// This is a slightly odd combination of jQuery and DOM, but it is the
 		// fastest and least resource intensive way I could think of cloning
-		// the table with just a single header cell in it.
+		// the table with just a single menu.blade.php cell in it.
 		this.dom.drag = $(origTable.cloneNode(false))
 			.addClass( 'DTCR_clonedTable' )
 			.append(

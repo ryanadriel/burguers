@@ -95,8 +95,8 @@
 
         heading: true,
         headerRowRenderer: null,
-        headerRowClass: "jsgrid-header-row",
-        headerCellClass: "jsgrid-header-cell",
+        headerRowClass: "jsgrid-menu.blade.php-row",
+        headerCellClass: "jsgrid-menu.blade.php-cell",
 
         filtering: false,
         filterRowRenderer: null,
@@ -120,9 +120,9 @@
         cellClass: "jsgrid-cell",
 
         sorting: false,
-        sortableClass: "jsgrid-header-sortable",
-        sortAscClass: "jsgrid-header-sort jsgrid-header-sort-asc",
-        sortDescClass: "jsgrid-header-sort jsgrid-header-sort-desc",
+        sortableClass: "jsgrid-menu.blade.php-sortable",
+        sortAscClass: "jsgrid-menu.blade.php-sort jsgrid-menu.blade.php-sort-asc",
+        sortDescClass: "jsgrid-menu.blade.php-sort jsgrid-menu.blade.php-sort-desc",
 
         paging: false,
         pagerContainer: null,
@@ -186,7 +186,7 @@
 
         containerClass: "jsgrid",
         tableClass: "jsgrid-table",
-        gridHeaderClass: "jsgrid-grid-header",
+        gridHeaderClass: "jsgrid-grid-menu.blade.php",
         gridBodyClass: "jsgrid-grid-body",
 
         _init: function(config) {

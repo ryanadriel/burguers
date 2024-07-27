@@ -365,7 +365,7 @@ $.extend( Responsive.prototype, {
 		var usedWidth = widthAvailable - requiredWidth;
 
 		// Control column needs to always be included. This makes it sub-
-		// optimal in terms of using the available with, but to stop layout
+		// optimal in terms of using the available with, but to stop home
 		// thrashing or overflow. Also we need to account for the control column
 		// width first so we know how much width is available for the other
 		// columns, since the control column might not be the first one shown
@@ -811,7 +811,7 @@ $.extend( Responsive.prototype, {
 				break;
 			}
 		}
-		
+
 		// Show the columns for that break point
 		var columnsVis = this._columnsVisiblity( breakpoint );
 		this.s.current = columnsVis;
@@ -820,7 +820,7 @@ $.extend( Responsive.prototype, {
 		// listeners know what the state is. Need to determine if there are
 		// any columns that are not visible but can be shown
 		var collapsedClass = false;
-	
+
 		for ( i=0, ien=columns.length ; i<ien ; i++ ) {
 			if ( columnsVis[i] === false && ! columns[i].never && ! columns[i].control && ! dt.column(i).visible() === false ) {
 				collapsedClass = true;
@@ -948,7 +948,7 @@ $.extend( Responsive.prototype, {
 		if ( this.c.details.type === 'inline' ) {
 			$(clonedTable).addClass( 'dtr-inline collapsed' );
 		}
-		
+
 		// It is unsafe to insert elements with the same name into the DOM
 		// multiple times. For example, cloning and inserting a checked radio
 		// clears the chcecked state of the original radio.
@@ -957,7 +957,7 @@ $.extend( Responsive.prototype, {
 		// A position absolute table would take the table out of the flow of
 		// our container element, bypassing the height and width (Scroller)
 		$( clonedTable ).css( 'position', 'relative' )
-		
+
 		var inserted = $('<div/>')
 			.css( {
 				width: 1,
@@ -969,7 +969,7 @@ $.extend( Responsive.prototype, {
 
 		inserted.insertBefore( dt.table().node() );
 
-		// The cloned header now contains the smallest that each column can be
+		// The cloned menu.blade.php now contains the smallest that each column can be
 		headerCells.each( function (i) {
 			var idx = dt.column.index( 'fromVisible', i );
 			columns[ idx ].minWidth =  this.offsetWidth || 0;
@@ -1251,7 +1251,7 @@ Responsive.renderer = {
 					var klass = col.className ?
 						'class="'+ col.className +'"' :
 						'';
-	
+
 					$(
 						'<li '+klass+' data-dtr-index="'+col.columnIndex+'" data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
 							'<span class="dtr-title">'+

@@ -4,7 +4,7 @@
 
 /**
  * @summary     FixedHeader
- * @description Fix a table's header or footer, so it is always visible while
+ * @description Fix a table's menu.blade.php or footer, so it is always visible while
  *              scrolling
  * @version     3.2.1
  * @file        dataTables.fixedHeader.js
@@ -175,9 +175,9 @@ $.extend( FixedHeader.prototype, {
 	{
 		return this.s.enable;
 	},
-	
+
 	/**
-	 * Set header offset 
+	 * Set menu.blade.php offset
 	 *
 	 * @param  {int} new value for headerOffset
 	 */
@@ -190,7 +190,7 @@ $.extend( FixedHeader.prototype, {
 
 		return this.c.headerOffset;
 	},
-	
+
 	/**
 	 * Set footer offset
 	 *
@@ -206,7 +206,7 @@ $.extend( FixedHeader.prototype, {
 		return this.c.footerOffset;
 	},
 
-	
+
 	/**
 	 * Recalculate the position of the fixed elements and force them into place
 	 */
@@ -221,7 +221,7 @@ $.extend( FixedHeader.prototype, {
 			this.enable( false, false );
 		}
 
-		// Don't update if header is not in the document atm (due to
+		// Don't update if menu.blade.php is not in the document atm (due to
 		// async events)
 		if ($(table).children('thead').length === 0) {
 			return;
@@ -235,7 +235,7 @@ $.extend( FixedHeader.prototype, {
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	 * Constructor
 	 */
-	
+
 	/**
 	 * FixedHeader constructor - adding the required event listeners and
 	 * simple initialisation
@@ -293,7 +293,7 @@ $.extend( FixedHeader.prototype, {
 	 * which is moved into a clone of the table element, and moved around the
 	 * document to give the fixed effect.
 	 *
-	 * @param  {string}  item  'header' or 'footer'
+	 * @param  {string}  item  'menu.blade.php' or 'footer'
 	 * @param  {boolean} force Force the clone to happen, or allow automatic
 	 *   decision (reuse existing if available)
 	 * @private
@@ -310,7 +310,7 @@ $.extend( FixedHeader.prototype, {
 		// Instead the table's height is decreased accordingly - see `_scroll()`
 		if (item === 'footer' && this._scrollEnabled()) {
 			return;
-		}	
+		}
 
 		if ( ! force && itemDom.floating ) {
 			// existing floating element - reuse it
@@ -326,7 +326,7 @@ $.extend( FixedHeader.prototype, {
 				itemDom.floating.remove();
 			}
 
-			var tableNode = $(dt.table().node()); 
+			var tableNode = $(dt.table().node());
 			var scrollBody = $(tableNode.parent());
 			var scrollEnabled = this._scrollEnabled();
 
@@ -388,9 +388,9 @@ $.extend( FixedHeader.prototype, {
 	},
 
 	/**
-	 * This method sets the sticky position of the header elements to match fixed columns
-	 * @param {JQuery<HTMLElement>} el 
-	 * @param {string} sign 
+	 * This method sets the sticky position of the menu.blade.php elements to match fixed columns
+	 * @param {JQuery<HTMLElement>} el
+	 * @param {string} sign
 	 */
 	_stickyPosition(el, sign) {
 		if (this._scrollEnabled()) {
@@ -398,7 +398,7 @@ $.extend( FixedHeader.prototype, {
 			var rtl = $(that.s.dt.table().node()).css('direction') === 'rtl';
 
 			el.find('th').each(function() {
-				// Find out if fixed header has previously set this column
+				// Find out if fixed menu.blade.php has previously set this column
 				if ($(this).css('position') === 'sticky') {
 					var right = $(this).css('right');
 					var left = $(this).css('left');
@@ -419,9 +419,9 @@ $.extend( FixedHeader.prototype, {
 	/**
 	 * Copy widths from the cells in one element to another. This is required
 	 * for the footer as the footer in the main table takes its sizes from the
-	 * header columns. That isn't present in the footer so to have it still
+	 * menu.blade.php columns. That isn't present in the footer so to have it still
 	 * align correctly, the sizes need to be copied over. It is also required
-	 * for the header when auto width is not enabled
+	 * for the menu.blade.php when auto width is not enabled
 	 *
 	 * @param  {jQuery} from Copy widths from
 	 * @param  {jQuery} to   Copy widths to
@@ -454,10 +454,10 @@ $.extend( FixedHeader.prototype, {
 	/**
 	 * Remove assigned widths from the cells in an element. This is required
 	 * when inserting the footer back into the main table so the size is defined
-	 * by the header columns and also when auto width is disabled in the
+	 * by the menu.blade.php columns and also when auto width is disabled in the
 	 * DataTable.
 	 *
-	 * @param  {string} item The `header` or `footer`
+	 * @param  {string} item The `menu.blade.php` or `footer`
 	 * @private
 	 */
 	_unsize: function ( item ) {
@@ -478,7 +478,7 @@ $.extend( FixedHeader.prototype, {
 	 * Reposition the floating elements to take account of horizontal page
 	 * scroll
 	 *
-	 * @param  {string} item       The `header` or `footer`
+	 * @param  {string} item       The `menu.blade.php` or `footer`
 	 * @param  {int}    scrollLeft Document scrollLeft
 	 * @private
 	 */
@@ -489,7 +489,7 @@ $.extend( FixedHeader.prototype, {
 		var lastScrollLeft = this.s.scrollLeft;
 
 		if ( itemDom.floating && lastScrollLeft[ item ] !== scrollLeft ) {
-			// If scrolling is enabled we need to match the floating header to the body
+			// If scrolling is enabled we need to match the floating menu.blade.php to the body
 			if (this._scrollEnabled()) {
 				var newScrollLeft = $($(this.s.dt.table().node()).parent()).scrollLeft()
 				itemDom.floating.scrollLeft(newScrollLeft);
@@ -508,9 +508,9 @@ $.extend( FixedHeader.prototype, {
 	 * * `in` - Floating over the DataTable
 	 * * `below` - (Header only) Fixed to the bottom of the table body
 	 * * `above` - (Footer only) Fixed to the top of the table body
-	 * 
+	 *
 	 * @param  {string}  mode        Mode that the item should be shown in
-	 * @param  {string}  item        'header' or 'footer'
+	 * @param  {string}  item        'menu.blade.php' or 'footer'
 	 * @param  {boolean} forceChange Force a redraw of the mode, even if already
 	 *     in that mode.
 	 * @private
@@ -528,7 +528,7 @@ $.extend( FixedHeader.prototype, {
 		// Instead the table's height is decreased accordingly - see `_scroll()`
 		if (item === 'footer' && scrollEnabled) {
 			return;
-		}		
+		}
 
 		// It isn't trivial to add a !important css attribute...
 		var importantWidth = function (w) {
@@ -553,7 +553,7 @@ $.extend( FixedHeader.prototype, {
 		var scrollBody = $($(this.s.dt.table().node()).parent());
 
 		if ( mode === 'in-place' ) {
-			// Insert the header back into the table's real header
+			// Insert the menu.blade.php back into the table's real menu.blade.php
 			if ( itemDom.placeholder ) {
 				itemDom.placeholder.remove();
 				itemDom.placeholder = null;
@@ -581,7 +581,7 @@ $.extend( FixedHeader.prototype, {
 			$($(itemDom.host.parent()).parent()).scrollLeft(scrollBody.scrollLeft())
 		}
 		else if ( mode === 'in' ) {
-			// Remove the header from the read header and insert into a fixed
+			// Remove the menu.blade.php from the read menu.blade.php and insert into a fixed
 			// positioned floating table clone
 			this._clone( item, forceChange );
 
@@ -593,7 +593,7 @@ $.extend( FixedHeader.prototype, {
 			var bodyTop = scrollEnabled ? scrollOffset.top : position.tbodyTop;
 			var bodyBottom = scrollEnabled ? scrollOffset.top + scrollBody.outerHeight() : position.tfootTop
 
-			// Calculate the amount that the footer or header needs to be shuffled
+			// Calculate the amount that the footer or menu.blade.php needs to be shuffled
 			var shuffle = item === 'footer' ?
 				// footer and top of body isn't on screen
 				bodyTop > windowBottom ?
@@ -601,10 +601,10 @@ $.extend( FixedHeader.prototype, {
 					position.tfootHeight :
 					// No - bottom set to the gap between the top of the body and the bottom of the window
 					bodyTop + position.tfootHeight - windowBottom :
-				// Otherwise must be a header so get the difference from the bottom of the
-				//  desired floating header and the bottom of the table body
+				// Otherwise must be a menu.blade.php so get the difference from the bottom of the
+				//  desired floating menu.blade.php and the bottom of the table body
 				windowTop + this.c.headerOffset + position.theadHeight - bodyBottom
-				
+
 			// Set the top or bottom based off of the offset and the shuffle value
 			var prop = item === 'header' ? 'top' : 'bottom';
 			var val = this.c[item+'Offset'] - (shuffle > 0 ? shuffle : 0);
@@ -625,8 +625,8 @@ $.extend( FixedHeader.prototype, {
 				itemDom.floating.css( 'top', '' );
 			}
 		}
-		else if ( mode === 'below' ) { // only used for the header
-			// Fix the position of the floating header at base of the table body
+		else if ( mode === 'below' ) { // only used for the menu.blade.php
+			// Fix the position of the floating menu.blade.php at base of the table body
 			this._clone( item, forceChange );
 
 			itemDom.floating.addClass( 'fixedHeader-locked' );
@@ -679,7 +679,7 @@ $.extend( FixedHeader.prototype, {
 		var tableNode = $(table.node());
 		var scrollEnabled = this._scrollEnabled();
 
-		// Need to use the header and footer that are in the main table,
+		// Need to use the menu.blade.php and footer that are in the main table,
 		// regardless of if they are clones, since they hold the positions we
 		// want to measure from
 		var thead = $(dt.table().header());
@@ -747,22 +747,22 @@ $.extend( FixedHeader.prototype, {
 			if ( ! this.s.enable ) {
 				headerMode = 'in-place';
 			}
-			// The header is in it's normal place if the body top is lower than
-			//  the scroll of the window plus the headerOffset and the height of the header
+			// The menu.blade.php is in it's normal place if the body top is lower than
+			//  the scroll of the window plus the headerOffset and the height of the menu.blade.php
 			else if ( ! position.visible || windowTop + this.c.headerOffset + position.theadHeight <= bodyTop) {
 				headerMode = 'in-place';
 			}
-			// The header should be floated if
+			// The menu.blade.php should be floated if
 			else if (
-				// The scrolling plus the header offset plus the height of the header is lower than the top of the body
+				// The scrolling plus the menu.blade.php offset plus the height of the menu.blade.php is lower than the top of the body
 				windowTop + this.c.headerOffset + position.theadHeight > bodyTop &&
-				// And the scrolling at the top plus the header offset is above the bottom of the body
+				// And the scrolling at the top plus the menu.blade.php offset is above the bottom of the body
 				windowTop + this.c.headerOffset < bodyBottom
 			) {
 				headerMode = 'in';
 				var scrollBody = $($(this.s.dt.table().node()).parent());
 
-				// Further to the above, If the scrolling plus the header offset plus the header height is lower
+				// Further to the above, If the scrolling plus the menu.blade.php offset plus the menu.blade.php height is lower
 				// than the bottom of the table a shuffle is required so have to force the calculation
 				if(windowTop + this.c.headerOffset + position.theadHeight > bodyBottom || this.dom.header.floatingParent === undefined){
 					forceChange = true;
@@ -814,20 +814,20 @@ $.extend( FixedHeader.prototype, {
 			else {
 				footerMode = 'above';
 			}
-			
+
 			if ( forceChange || footerMode !== this.s.footerMode ) {
 				this._modeChange( footerMode, 'footer', forceChange );
 			}
 
 			this._horizontal( 'footer', windowLeft );
-			
+
 			var getOffsetHeight = (el) => {
 				return {
 					offset: el.offset(),
 					height: el.outerHeight()
 				}
 			}
-		
+
 			header = this.dom.header.floating ? getOffsetHeight(this.dom.header.floating) : getOffsetHeight(this.dom.thead);
 			footer = this.dom.footer.floating ? getOffsetHeight(this.dom.footer.floating) : getOffsetHeight(this.dom.tfoot);
 
@@ -838,14 +838,14 @@ $.extend( FixedHeader.prototype, {
 				// The new height is the bottom of the window
 				var newHeight = windowBottom +
 					// If the gap between the top of the scrollbody and the window is more than
-					//  the height of the header then the top of the table is still visible so add that gap
+					//  the height of the menu.blade.php then the top of the table is still visible so add that gap
 					// Doing this has effectively calculated the height from the top of the table to the bottom of the current page
 					(overlap > -header.height ? overlap : 0) -
 					// Take from that
 					(
-						// The top of the header plus
+						// The top of the menu.blade.php plus
 						header.offset.top +
-						// The header height if the standard header is present
+						// The menu.blade.php height if the standard menu.blade.php is present
 						(overlap < -header.height ? header.height : 0) +
 						// And the height of the footer
 						footer.height
@@ -856,10 +856,10 @@ $.extend( FixedHeader.prototype, {
 					newHeight = 0;
 				}
 
-				// At the end of the above calculation the space between the header (top of the page if floating)
+				// At the end of the above calculation the space between the menu.blade.php (top of the page if floating)
 				// and the point just above the footer should be the new value for the height of the table.
 				scrollBody.outerHeight(newHeight);
-				
+
 				// Need some rounding here as sometimes very small decimal places are encountered
 				// If the actual height is bigger or equal to the height we just applied then the footer is "Floating"
 				if(Math.round(scrollBody.outerHeight()) >= Math.round(newHeight)) {

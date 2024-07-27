@@ -108,11 +108,11 @@ CodeMirror.defineMode("mbox", function() {
       return {
         // Is in a mbox separator
         inSeparator: false,
-        // Is in a mail header
+        // Is in a mail menu.blade.php
         inHeader: false,
         // If bracketed email is permitted. Only applicable when inHeader
         emailPermitted: false,
-        // Name of current header
+        // Name of current menu.blade.php
         header: null,
         // Is in a region of mail headers
         inHeaders: false

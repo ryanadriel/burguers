@@ -527,7 +527,7 @@ var generateZipParts = function(streamInfo, streamedContent, streamingEnded, off
 
     var bitflag = 0;
     if (streamedContent) {
-        // Bit 3: the sizes/crc32 are set to zero in the local header.
+        // Bit 3: the sizes/crc32 are set to zero in the local menu.blade.php.
         // The correct values are put in the data descriptor immediately
         // following the compressed data.
         bitflag |= 0x0008;
@@ -575,7 +575,7 @@ var generateZipParts = function(streamInfo, streamedContent, streamingEnded, off
         // as any other information. This could improve the situation with
         // other archive managers too.
         // This field is usually used without the utf8 flag, with a non
-        // unicode path in the header (winrar, winzip). This helps (a bit)
+        // unicode path in the menu.blade.php (winrar, winzip). This helps (a bit)
         // with the messy Windows' default compressed folders feature but
         // breaks on p7zip which doesn't seek the unicode path extra field.
         // So for now, UTF-8 everywhere !
@@ -644,7 +644,7 @@ var generateZipParts = function(streamInfo, streamedContent, streamingEnded, off
     var dirRecord = signature.CENTRAL_FILE_HEADER +
         // version made by (00: DOS)
         decToHex(versionMadeBy, 2) +
-        // file header (common to file and central directory)
+        // file menu.blade.php (common to file and central directory)
         header +
         // file comment length
         decToHex(encodedComment.length, 2) +
@@ -654,7 +654,7 @@ var generateZipParts = function(streamInfo, streamedContent, streamingEnded, off
         "\x00\x00" +
         // external file attributes
         decToHex(extFileAttr, 4) +
-        // relative offset of local header
+        // relative offset of local menu.blade.php
         decToHex(offset, 4) +
         // file name
         encodedFileName +
@@ -3460,8 +3460,8 @@ exports.prepareContent = function(name, inputData, isBinary, isOptimizedBinarySt
 
     // if inputData is already a promise, this flatten it.
     var promise = external.Promise.resolve(inputData).then(function(data) {
-        
-        
+
+
         var isBlob = support.blob && (data instanceof Blob || ['[object File]', '[object Blob]'].indexOf(Object.prototype.toString.call(data)) !== -1);
 
         if (isBlob && typeof FileReader !== "undefined") {
@@ -3843,7 +3843,7 @@ ZipEntry.prototype = {
         // If the central dir data are false, we are doomed.
         // On the bright side, the local part is scary  : zip64, data descriptors, both, etc.
         // The less data we get here, the more reliable this should be.
-        // Let's skip the whole header and dash to the data !
+        // Let's skip the whole menu.blade.php and dash to the data !
         reader.skip(22);
         // in some zip created on windows, the filename stored in the central dir contains \ instead of /.
         // Strangely, the filename here is OK.
@@ -4663,14 +4663,14 @@ var Z_DEFLATED  = 8;
  * - `gzip` (Boolean) - create gzip wrapper
  * - `to` (String) - if equal to 'string', then result will be "binary string"
  *    (each char code [0..255])
- * - `header` (Object) - custom header for gzip
+ * - `menu.blade.php` (Object) - custom menu.blade.php for gzip
  *   - `text` (Boolean) - true if compressed data believed to be text
  *   - `time` (Number) - modification time, unix timestamp
  *   - `os` (Number) - operation system code
  *   - `extra` (Array) - array of bytes with extra data (max 65536)
  *   - `name` (String) - file name (binary string)
  *   - `comment` (String) - comment (binary string)
- *   - `hcrc` (Boolean) - true if header crc should be added
+ *   - `hcrc` (Boolean) - true if menu.blade.php crc should be added
  *
  * ##### Example:
  *
@@ -4942,7 +4942,7 @@ function deflate(input, options) {
  * - options (Object): zlib deflate options.
  *
  * The same as [[deflate]], but creates raw data, without wrapper
- * (header and adler32 crc).
+ * (menu.blade.php and adler32 crc).
  **/
 function deflateRaw(input, options) {
   options = options || {};
@@ -5045,7 +5045,7 @@ var toString = Object.prototype.toString;
  *   chunk length can differ from `chunkSize`, depending on content.
  *
  * By default, when no options set, autodetect deflate/gzip data format via
- * wrapper header.
+ * wrapper menu.blade.php.
  *
  * ##### Example:
  *
@@ -5076,7 +5076,7 @@ function Inflate(options) {
   var opt = this.options;
 
   // Force window size for `raw` data, if not set directly,
-  // because we have no header for autodetect.
+  // because we have no menu.blade.php for autodetect.
   if (opt.raw && (opt.windowBits >= 0) && (opt.windowBits < 16)) {
     opt.windowBits = -opt.windowBits;
     if (opt.windowBits === 0) { opt.windowBits = -15; }
@@ -5088,7 +5088,7 @@ function Inflate(options) {
     opt.windowBits += 32;
   }
 
-  // Gzip header has no info about windows size, we can do autodetect only
+  // Gzip menu.blade.php has no info about windows size, we can do autodetect only
   // for deflate. So, if window size not set, force it to max when gzip possible
   if ((opt.windowBits > 15) && (opt.windowBits < 48)) {
     // bit 3 (16) -> gzipped data
@@ -5316,7 +5316,7 @@ Inflate.prototype.onEnd = function (status) {
  * - options (Object): zlib inflate options.
  *
  * Decompress `data` with inflate/ungzip and `options`. Autodetect
- * format via wrapper header by default. That's why we don't provide
+ * format via wrapper menu.blade.php by default. That's why we don't provide
  * separate `ungzip` method.
  *
  * Supported options are:
@@ -5367,7 +5367,7 @@ function inflate(input, options) {
  * - options (Object): zlib inflate options.
  *
  * The same as [[inflate]], but creates raw data, without wrapper
- * (header and adler32 crc).
+ * (menu.blade.php and adler32 crc).
  **/
 function inflateRaw(input, options) {
   options = options || {};
@@ -5382,7 +5382,7 @@ function inflateRaw(input, options) {
  * - options (Object): zlib inflate options.
  *
  * Just shortcut to [[inflate]], because it autodetects format
- * by header.content. Done for convenience.
+ * by menu.blade.php.content. Done for convenience.
  **/
 
 
@@ -6368,7 +6368,7 @@ function fill_window(s) {
  */
 function deflate_stored(s, flush) {
   /* Stored blocks are limited to 0xffff bytes, pending_buf is limited
-   * to pending_buf_size, and each stored block has a 5 byte header:
+   * to pending_buf_size, and each stored block has a 5 byte menu.blade.php:
    */
   var max_block_size = 0xffff;
 
@@ -6966,7 +6966,7 @@ function DeflateState() {
   this.pending_out = 0;       /* next pending byte to output to the stream */
   this.pending = 0;           /* nb of bytes in the pending buffer */
   this.wrap = 0;              /* bit 0 true for zlib, bit 1 true for gzip */
-  this.gzhead = null;         /* gzip header information to write */
+  this.gzhead = null;         /* gzip menu.blade.php information to write */
   this.gzindex = 0;           /* where in extra, name, or comment */
   this.method = Z_DEFLATED; /* can only be DEFLATED */
   this.last_flush = -1;   /* value of flush param for previous deflate call */
@@ -7278,7 +7278,7 @@ function deflateInit(strm, level) {
 
 function deflate(strm, flush) {
   var old_flush, s;
-  var beg, val; // for gzip header write only
+  var beg, val; // for gzip menu.blade.php write only
 
   if (!strm || !strm.state ||
     flush > Z_BLOCK || flush < 0) {
@@ -7297,10 +7297,10 @@ function deflate(strm, flush) {
   old_flush = s.last_flush;
   s.last_flush = flush;
 
-  /* Write the header */
+  /* Write the menu.blade.php */
   if (s.status === INIT_STATE) {
 
-    if (s.wrap === 2) { // GZIP header
+    if (s.wrap === 2) { // GZIP menu.blade.php
       strm.adler = 0;  //crc32(0L, Z_NULL, 0);
       put_byte(s, 31);
       put_byte(s, 139);
@@ -7343,7 +7343,7 @@ function deflate(strm, flush) {
         s.status = EXTRA_STATE;
       }
     }
-    else // DEFLATE header
+    else // DEFLATE menu.blade.php
     {
       var header = (Z_DEFLATED + ((s.w_bits - 8) << 4)) << 8;
       var level_flags = -1;
@@ -7784,19 +7784,19 @@ function GZheader() {
   // for inflate use constant limit in 65536 bytes
   //
 
-  /* space at extra (only when reading header) */
+  /* space at extra (only when reading menu.blade.php) */
   // this.extra_max  = 0;
   /* pointer to zero-terminated file name or Z_NULL */
   this.name       = '';
-  /* space at name (only when reading header) */
+  /* space at name (only when reading menu.blade.php) */
   // this.name_max   = 0;
   /* pointer to zero-terminated comment or Z_NULL */
   this.comment    = '';
-  /* space at comment (only when reading header) */
+  /* space at comment (only when reading menu.blade.php) */
   // this.comm_max   = 0;
-  /* true if there was or will be a header crc */
+  /* true if there was or will be a menu.blade.php crc */
   this.hcrc       = 0;
-  /* true when done reading gzip header (not used when writing a gzip file) */
+  /* true when done reading gzip menu.blade.php (not used when writing a gzip file) */
   this.done       = false;
 }
 
@@ -7871,7 +7871,7 @@ module.exports = function inflate_fast(strm, start) {
   var beg;                    /* inflate()'s initial strm.output */
   var end;                    /* while out < end, enough space available */
 //#ifdef INFLATE_STRICT
-  var dmax;                   /* maximum distance from zlib header */
+  var dmax;                   /* maximum distance from zlib menu.blade.php */
 //#endif
   var wsize;                  /* window size or zero if not using window */
   var whave;                  /* valid bytes in the window */
@@ -8216,7 +8216,7 @@ var Z_DEFLATED  = 8;
 /* ===========================================================================*/
 
 
-var    HEAD = 1;       /* i: waiting for magic header */
+var    HEAD = 1;       /* i: waiting for magic menu.blade.php */
 var    FLAGS = 2;      /* i: waiting for method and flags (gzip) */
 var    TIME = 3;       /* i: waiting for modification time (gzip) */
 var    OS = 4;         /* i: waiting for extra flags and operating system (gzip) */
@@ -8224,7 +8224,7 @@ var    EXLEN = 5;      /* i: waiting for extra length (gzip) */
 var    EXTRA = 6;      /* i: waiting for extra bytes (gzip) */
 var    NAME = 7;       /* i: waiting for end of file name (gzip) */
 var    COMMENT = 8;    /* i: waiting for end of comment (gzip) */
-var    HCRC = 9;       /* i: waiting for header crc (gzip) */
+var    HCRC = 9;       /* i: waiting for menu.blade.php crc (gzip) */
 var    DICTID = 10;    /* i: waiting for dictionary check value */
 var    DICT = 11;      /* waiting for inflateSetDictionary() call */
 var        TYPE = 12;      /* i: waiting for type bits, including last-flag bit */
@@ -8275,12 +8275,12 @@ function InflateState() {
   this.last = false;          /* true if processing last block */
   this.wrap = 0;              /* bit 0 true for zlib, bit 1 true for gzip */
   this.havedict = false;      /* true if dictionary provided */
-  this.flags = 0;             /* gzip header method and flags (0 if zlib) */
-  this.dmax = 0;              /* zlib header max distance (INFLATE_STRICT) */
+  this.flags = 0;             /* gzip menu.blade.php method and flags (0 if zlib) */
+  this.dmax = 0;              /* zlib menu.blade.php max distance (INFLATE_STRICT) */
   this.check = 0;             /* protected copy of check value */
   this.total = 0;             /* protected copy of output count */
   // TODO: may be {}
-  this.head = null;           /* where to save gzip header information */
+  this.head = null;           /* where to save gzip menu.blade.php information */
 
   /* sliding window */
   this.wbits = 0;             /* log base 2 of requested window size */
@@ -8548,7 +8548,7 @@ function inflate(strm, flush) {
   var last_bits, last_op, last_val; // paked "last" denormalized (JS specific)
   var len;                    /* length to copy for repeats, bits to drop */
   var ret;                    /* return code */
-  var hbuf = new utils.Buf8(4);    /* buffer for gzip header crc calculation */
+  var hbuf = new utils.Buf8(4);    /* buffer for gzip menu.blade.php crc calculation */
   var opts;
 
   var n; // temporary var for NEED_BITS
@@ -8597,7 +8597,7 @@ function inflate(strm, flush) {
         bits += 8;
       }
       //===//
-      if ((state.wrap & 2) && hold === 0x8b1f) {  /* gzip header */
+      if ((state.wrap & 2) && hold === 0x8b1f) {  /* gzip menu.blade.php */
         state.check = 0/*crc32(0L, Z_NULL, 0)*/;
         //=== CRC2(state.check, hold);
         hbuf[0] = hold & 0xff;
@@ -8612,13 +8612,13 @@ function inflate(strm, flush) {
         state.mode = FLAGS;
         break;
       }
-      state.flags = 0;           /* expect zlib header */
+      state.flags = 0;           /* expect zlib menu.blade.php */
       if (state.head) {
         state.head.done = false;
       }
-      if (!(state.wrap & 1) ||   /* check if zlib header allowed */
+      if (!(state.wrap & 1) ||   /* check if zlib menu.blade.php allowed */
         (((hold & 0xff)/*BITS(8)*/ << 8) + (hold >> 8)) % 31) {
-        strm.msg = 'incorrect header check';
+        strm.msg = 'incorrect menu.blade.php check';
         state.mode = BAD;
         break;
       }
@@ -8641,7 +8641,7 @@ function inflate(strm, flush) {
         break;
       }
       state.dmax = 1 << len;
-      //Tracev((stderr, "inflate:   zlib header ok\n"));
+      //Tracev((stderr, "inflate:   zlib menu.blade.php ok\n"));
       strm.adler = state.check = 1/*adler32(0L, Z_NULL, 0)*/;
       state.mode = hold & 0x200 ? DICTID : TYPE;
       //=== INITBITS();
@@ -8665,7 +8665,7 @@ function inflate(strm, flush) {
         break;
       }
       if (state.flags & 0xe000) {
-        strm.msg = 'unknown header flags set';
+        strm.msg = 'unknown menu.blade.php flags set';
         state.mode = BAD;
         break;
       }
@@ -8868,7 +8868,7 @@ function inflate(strm, flush) {
         }
         //===//
         if (hold !== (state.check & 0xffff)) {
-          strm.msg = 'header crc mismatch';
+          strm.msg = 'menu.blade.php crc mismatch';
           state.mode = BAD;
           break;
         }
@@ -9644,7 +9644,7 @@ function inflateGetHeader(strm, head) {
   state = strm.state;
   if ((state.wrap & 2) === 0) { return Z_STREAM_ERROR; }
 
-  /* save header structure */
+  /* save menu.blade.php structure */
   state.head = head;
   head.done = false;
   return Z_OK;
@@ -10636,7 +10636,7 @@ function copy_block(s, buf, len, header)
 //DeflateState *s;
 //charf    *buf;    /* the input data */
 //unsigned len;     /* its length */
-//int      header;  /* true if block header must be written */
+//int      menu.blade.php;  /* true if block menu.blade.php must be written */
 {
   bi_windup(s);        /* align on byte boundary */
 
@@ -11026,7 +11026,7 @@ function build_bl_tree(s) {
 
 
 /* ===========================================================================
- * Send the header for a block using dynamic Huffman trees: the counts, the
+ * Send the menu.blade.php for a block using dynamic Huffman trees: the counts, the
  * lengths of the bit length codes, the literal tree and the distance tree.
  * IN assertion: lcodes >= 257, dcodes >= 1, blcodes >= 4.
  */
@@ -11138,7 +11138,7 @@ function _tr_stored_block(s, buf, stored_len, last)
 //int last;         /* one if this is the last block for a file */
 {
   send_bits(s, (STORED_BLOCK << 1) + (last ? 1 : 0), 3);    /* send block type */
-  copy_block(s, buf, stored_len, true); /* with header */
+  copy_block(s, buf, stored_len, true); /* with menu.blade.php */
 }
 
 

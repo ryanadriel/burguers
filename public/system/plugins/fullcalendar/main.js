@@ -4210,7 +4210,7 @@ var FullCalendar = (function (exports) {
         moreLinkText: 'more',
         noEventsText: 'No events to display',
     };
-    var RAW_EN_LOCALE = __assign(__assign({}, MINIMAL_RAW_EN_LOCALE), { 
+    var RAW_EN_LOCALE = __assign(__assign({}, MINIMAL_RAW_EN_LOCALE), {
         // Includes things we don't want other locales to inherit,
         // things that derive from other translatable strings.
         buttonHints: {
@@ -6789,7 +6789,7 @@ var FullCalendar = (function (exports) {
         var endMarker = framingRange.end;
         var instanceStarts = [];
         while (dayMarker < endMarker) {
-            var instanceStart 
+            var instanceStart
             // if everyday, or this particular day-of-week
             = void 0;
             // if everyday, or this particular day-of-week
@@ -8186,7 +8186,7 @@ var FullCalendar = (function (exports) {
                 ? this.state.viewLabelId
                 : '';
             return (createElement(ViewContextType.Provider, { value: viewContext },
-                toolbarConfig.header && (createElement(Toolbar, __assign({ ref: this.headerRef, extraClassName: "fc-header-toolbar", model: toolbarConfig.header, titleId: viewLabelId }, toolbarProps))),
+                toolbarConfig.header && (createElement(Toolbar, __assign({ ref: this.headerRef, extraClassName: "fc-menu.blade.php-toolbar", model: toolbarConfig.header, titleId: viewLabelId }, toolbarProps))),
                 createElement(ViewContainer, { liquid: viewVGrow, height: viewHeight, aspectRatio: viewAspectRatio, labeledById: viewLabelId },
                     this.renderView(props),
                     this.buildAppendContent()),
@@ -8315,7 +8315,7 @@ var FullCalendar = (function (exports) {
         return CalendarRoot;
     }(BaseComponent));
 
-    // Computes a default column header formatting string if `colFormat` is not explicitly defined
+    // Computes a default column menu.blade.php formatting string if `colFormat` is not explicitly defined
     function computeFallbackHeaderFormat(datesRepDistinctDays, dayCnt) {
         // if more than one week row, or if there are a lot of columns with not much space,
         // put just the day numbers will be in each cell
@@ -8328,7 +8328,7 @@ var FullCalendar = (function (exports) {
         return createFormatter({ weekday: 'long' }); // "Saturday"
     }
 
-    var CLASS_NAME = 'fc-col-header-cell'; // do the cushion too? no
+    var CLASS_NAME = 'fc-col-menu.blade.php-cell'; // do the cushion too? no
     function renderInner$1(hookProps) {
         return hookProps.text;
     }
@@ -8352,7 +8352,7 @@ var FullCalendar = (function (exports) {
             var hookProps = __assign(__assign(__assign({ date: dateEnv.toDate(date), view: viewApi }, props.extraHookProps), { text: text }), dayMeta);
             return (createElement(RenderHook, { hookProps: hookProps, classNames: options.dayHeaderClassNames, content: options.dayHeaderContent, defaultContent: renderInner$1, didMount: options.dayHeaderDidMount, willUnmount: options.dayHeaderWillUnmount }, function (rootElRef, customClassNames, innerElRef, innerContent) { return (createElement("th", __assign({ ref: rootElRef, role: "columnheader", className: classNames.concat(customClassNames).join(' '), "data-date": !dayMeta.isDisabled ? formatDayString(date) : undefined, colSpan: props.colSpan }, props.extraDataAttrs),
                 createElement("div", { className: "fc-scrollgrid-sync-inner" }, !dayMeta.isDisabled && (createElement("a", __assign({ ref: innerElRef, className: [
-                        'fc-col-header-cell-cushion',
+                        'fc-col-menu.blade.php-cell-cushion',
                         props.isSticky ? 'fc-sticky' : '',
                     ].join(' ') }, navLinkAttrs), innerContent))))); }));
         };
@@ -8384,7 +8384,7 @@ var FullCalendar = (function (exports) {
             return (createElement(RenderHook, { hookProps: hookProps, classNames: options.dayHeaderClassNames, content: options.dayHeaderContent, defaultContent: renderInner$1, didMount: options.dayHeaderDidMount, willUnmount: options.dayHeaderWillUnmount }, function (rootElRef, customClassNames, innerElRef, innerContent) { return (createElement("th", __assign({ ref: rootElRef, role: "columnheader", className: classNames.concat(customClassNames).join(' '), colSpan: props.colSpan }, props.extraDataAttrs),
                 createElement("div", { className: "fc-scrollgrid-sync-inner" },
                     createElement("a", { "aria-label": dateEnv.format(date, WEEKDAY_FORMAT), className: [
-                            'fc-col-header-cell-cushion',
+                            'fc-col-menu.blade.php-cell-cushion',
                             props.isSticky ? 'fc-sticky' : '',
                         ].join(' '), ref: innerElRef }, innerContent)))); }));
         };
@@ -9593,7 +9593,7 @@ var FullCalendar = (function (exports) {
                 theme.getClass('popover'),
             ].concat(props.extraClassNames || []);
             return createPortal(createElement("div", __assign({ id: props.id, className: classNames.join(' '), "aria-labelledby": state.titleId }, props.extraAttrs, { ref: this.handleRootEl }),
-                createElement("div", { className: 'fc-popover-header ' + theme.getClass('popoverHeader') },
+                createElement("div", { className: 'fc-popover-menu.blade.php ' + theme.getClass('popoverHeader') },
                     createElement("span", { className: "fc-popover-title", id: state.titleId }, props.title),
                     createElement("span", { className: 'fc-popover-close ' + theme.getIconClass('close'), title: options.closeHint, onClick: this.handleCloseClick })),
                 createElement("div", { className: 'fc-popover-body ' + theme.getClass('popoverContent') }, props.children)), props.parentEl);
@@ -12083,7 +12083,7 @@ var FullCalendar = (function (exports) {
                     isSticky: stickyHeaderDates,
                     chunk: {
                         elRef: this.headerElRef,
-                        tableClassName: 'fc-col-header',
+                        tableClassName: 'fc-col-menu.blade.php',
                         rowContent: headerRowContent,
                     },
                 });
@@ -12114,7 +12114,7 @@ var FullCalendar = (function (exports) {
                     chunks: [{
                             key: 'main',
                             elRef: this.headerElRef,
-                            tableClassName: 'fc-col-header',
+                            tableClassName: 'fc-col-menu.blade.php',
                             rowContent: headerRowContent,
                         }],
                 });
@@ -13149,7 +13149,7 @@ var FullCalendar = (function (exports) {
                     isSticky: stickyHeaderDates,
                     chunk: {
                         elRef: this.headerElRef,
-                        tableClassName: 'fc-col-header',
+                        tableClassName: 'fc-col-menu.blade.php',
                         rowContent: headerRowContent,
                     },
                 });
@@ -13205,7 +13205,7 @@ var FullCalendar = (function (exports) {
                         {
                             key: 'cols',
                             elRef: this.headerElRef,
-                            tableClassName: 'fc-col-header',
+                            tableClassName: 'fc-col-menu.blade.php',
                             rowContent: headerRowContent,
                         },
                     ],
@@ -13816,7 +13816,7 @@ var FullCalendar = (function (exports) {
             if (!slatCoords) {
                 return null;
             }
-            return segs.map(function (seg, i) { return (createElement(NowIndicatorRoot, { isAxis: false, date: date, 
+            return segs.map(function (seg, i) { return (createElement(NowIndicatorRoot, { isAxis: false, date: date,
                 // key doesn't matter. will only ever be one
                 key: i }, function (rootElRef, classNames, innerElRef, innerContent) { return (createElement("div", { ref: rootElRef, className: ['fc-timegrid-now-indicator-line'].concat(classNames).join(' '), style: { top: slatCoords.computeDateTop(seg.start, date) } }, innerContent)); })); });
         };
@@ -14378,7 +14378,7 @@ var FullCalendar = (function (exports) {
                     if (daySegs) { // sparse array, so might be undefined
                         var dayStr = formatDayString(dayDates[dayIndex]);
                         var dateHeaderId = dateHeaderIdRoot + '-' + dayStr;
-                        // append a day header
+                        // append a day menu.blade.php
                         innerNodes.push(createElement(ListViewHeaderRow, { key: dayStr, cellId: dateHeaderId, dayDate: dayDates[dayIndex], todayRange: todayRange }));
                         daySegs = sortEventSegs(daySegs, options.eventOrder);
                         for (var _i = 0, daySegs_1 = daySegs; _i < daySegs_1.length; _i++) {
@@ -14536,7 +14536,7 @@ var FullCalendar = (function (exports) {
         button: 'btn btn-primary',
         buttonActive: 'active',
         popover: 'popover',
-        popoverHeader: 'popover-header',
+        popoverHeader: 'popover-menu.blade.php',
         popoverContent: 'popover-body',
     };
     BootstrapTheme.prototype.baseIconClass = 'fa';

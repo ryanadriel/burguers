@@ -86,7 +86,7 @@ CodeMirror.defineMode("tiddlywiki", function () {
 
     stream.next();
     if (sol && /[\/\*!#;:>|]/.test(ch)) {
-      if (ch == "!") { // tw header
+      if (ch == "!") { // tw menu.blade.php
         stream.skipToEnd();
         return "header";
       }

@@ -772,7 +772,7 @@ CodeMirror.defineMode("verilog", function(config, parserConfig) {
         state.tlvNextIndent = -1;    // The number of spaces to autoindent the next line if tlvCodeActive.
         state.tlvInBlockComment = false;  // True inside /**/ comment.
         if (tlvTrackStatements) {
-          state.statementComment = false;  // True inside a statement's header comment.
+          state.statementComment = false;  // True inside a statement's menu.blade.php comment.
         }
       }
 

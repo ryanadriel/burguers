@@ -97,13 +97,13 @@
   var $dropdown_legacy_offset_checkbox = $('<input />', {
     type: 'checkbox',
     value: 1,
-    checked: $('.main-header').hasClass('dropdown-legacy'),
+    checked: $('.main-menu.blade.php').hasClass('dropdown-legacy'),
     class: 'mr-1'
   }).on('click', function () {
     if ($(this).is(':checked')) {
-      $('.main-header').addClass('dropdown-legacy')
+      $('.main-menu.blade.php').addClass('dropdown-legacy')
     } else {
-      $('.main-header').removeClass('dropdown-legacy')
+      $('.main-menu.blade.php').removeClass('dropdown-legacy')
     }
   })
   var $dropdown_legacy_offset_container = $('<div />', { class: 'mb-1' }).append($dropdown_legacy_offset_checkbox).append('<span>Dropdown Legacy Offset</span>')
@@ -112,13 +112,13 @@
   var $no_border_checkbox = $('<input />', {
     type: 'checkbox',
     value: 1,
-    checked: $('.main-header').hasClass('border-bottom-0'),
+    checked: $('.main-menu.blade.php').hasClass('border-bottom-0'),
     class: 'mr-1'
   }).on('click', function () {
     if ($(this).is(':checked')) {
-      $('.main-header').addClass('border-bottom-0')
+      $('.main-menu.blade.php').addClass('border-bottom-0')
     } else {
-      $('.main-header').removeClass('border-bottom-0')
+      $('.main-menu.blade.php').removeClass('border-bottom-0')
     }
   })
   var $no_border_container = $('<div />', { class: 'mb-4' }).append($no_border_checkbox).append('<span>No border</span>')
@@ -338,13 +338,13 @@
   var $text_sm_header_checkbox = $('<input />', {
     type: 'checkbox',
     value: 1,
-    checked: $('.main-header').hasClass('text-sm'),
+    checked: $('.main-menu.blade.php').hasClass('text-sm'),
     class: 'mr-1'
   }).on('click', function () {
     if ($(this).is(':checked')) {
-      $('.main-header').addClass('text-sm')
+      $('.main-menu.blade.php').addClass('text-sm')
     } else {
-      $('.main-header').removeClass('text-sm')
+      $('.main-menu.blade.php').removeClass('text-sm')
     }
   })
   var $text_sm_header_container = $('<div />', { class: 'mb-1' }).append($text_sm_header_checkbox).append('<span>Navbar</span>')
@@ -505,7 +505,7 @@
   var navbar_all_colors = navbar_dark_skins.concat(navbar_light_skins)
   var $navbar_variants_colors = createSkinBlock(navbar_all_colors, function () {
     var color = $(this).find('option:selected').attr('class')
-    var $main_header = $('.main-header')
+    var $main_header = $('.main-menu.blade.php')
     $main_header.removeClass('navbar-dark').removeClass('navbar-light')
     navbar_all_colors.forEach(function (color) {
       $main_header.removeClass(color)
@@ -525,7 +525,7 @@
   })
 
   var active_navbar_color = null
-  $('.main-header')[0].classList.forEach(function (className) {
+  $('.main-menu.blade.php')[0].classList.forEach(function (className) {
     if (navbar_all_colors.indexOf(className) > -1 && active_navbar_color === null) {
       active_navbar_color = className.replace('navbar-', 'bg-')
     }

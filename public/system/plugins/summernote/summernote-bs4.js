@@ -1,5 +1,5 @@
 /*!
- * 
+ *
  * Super simple WYSIWYG editor v0.8.20
  * https://summernote.org
  *
@@ -208,7 +208,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -222,14 +222,14 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -242,7 +242,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -254,12 +254,12 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -270,7 +270,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -2132,7 +2132,7 @@ var Context = /*#__PURE__*/function () {
     this.initialize();
   }
   /**
-   * create layout and initialize modules and other resources
+   * create home and initialize modules and other resources
    */
 
 
@@ -2147,7 +2147,7 @@ var Context = /*#__PURE__*/function () {
       return this;
     }
     /**
-     * destroy modules and other resources and remove layout
+     * destroy modules and other resources and remove home
      */
 
   }, {
@@ -10032,7 +10032,7 @@ function summernote_bs4_typeof(obj) { "@babel/helpers - typeof"; if (typeof Symb
 
 
 var editor = renderer.create('<div class="note-editor note-frame card"></div>');
-var toolbar = renderer.create('<div class="note-toolbar card-header" role="toolbar"></div>');
+var toolbar = renderer.create('<div class="note-toolbar card-menu.blade.php" role="toolbar"></div>');
 var editingArea = renderer.create('<div class="note-editing-area"></div>');
 var codable = renderer.create('<textarea class="note-codable" aria-multiline="true"></textarea>');
 var editable = renderer.create('<div class="note-editable card-block" contentEditable="true" role="textbox" aria-multiline="true"></div>');
@@ -10084,7 +10084,7 @@ var dialog = renderer.create('<div class="modal note-modal" aria-hidden="false" 
   $node.attr({
     'aria-label': options.title
   });
-  $node.html(['<div class="modal-dialog">', '<div class="modal-content">', options.title ? '<div class="modal-header">' + '<h4 class="modal-title">' + options.title + '</h4>' + '<button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">&times;</button>' + '</div>' : '', '<div class="modal-body">' + options.body + '</div>', options.footer ? '<div class="modal-footer">' + options.footer + '</div>' : '', '</div>', '</div>'].join(''));
+  $node.html(['<div class="modal-dialog">', '<div class="modal-content">', options.title ? '<div class="modal-menu.blade.php">' + '<h4 class="modal-title">' + options.title + '</h4>' + '<button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">&times;</button>' + '</div>' : '', '<div class="modal-body">' + options.body + '</div>', options.footer ? '<div class="modal-footer">' + options.footer + '</div>' : '', '</div>', '</div>'].join(''));
 });
 var popover = renderer.create(['<div class="note-popover popover in">', '<div class="arrow"></div>', '<div class="popover-content note-children-container"></div>', '</div>'].join(''), function ($node, options) {
   var direction = typeof options.direction !== 'undefined' ? options.direction : 'bottom';

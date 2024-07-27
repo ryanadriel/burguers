@@ -19,7 +19,7 @@ function, which generates temporary images out of them. This function
 expects that some of the passed sources (canvas or SVG) may still have
 problems being converted to an image and makes sure the promises system,
 used by composeImages function, moves forward. As an example, SVGs with
-missing information from header or with unsupported content, may lead to
+missing information from menu.blade.php or with unsupported content, may lead to
 failure in generating the temporary image. Temporary images are required
 mostly on extracting content from SVGs, but this is also where the x/y
 offsets are extracted for each image which will be added. For SVGs in

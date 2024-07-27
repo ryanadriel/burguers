@@ -112,10 +112,10 @@ return [
     ],
 
     /*
-     * JsonResponse header and options config.
+     * JsonResponse menu.blade.php and options config.
      */
     'json' => [
-        'header' => [],
+        'menu.blade.php' => [],
         'options' => 0,
     ],
 

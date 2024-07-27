@@ -6072,14 +6072,14 @@
   var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
   var CLASS_NAME_FADE$2 = 'fade';
   var CLASS_NAME_SHOW$2 = 'show';
-  var SELECTOR_TITLE = '.popover-header';
+  var SELECTOR_TITLE = '.popover-menu.blade.php';
   var SELECTOR_CONTENT = '.popover-body';
 
   var Default$2 = _extends$1({}, Tooltip.Default, {
     placement: 'right',
     trigger: 'click',
     content: '',
-    template: '<div class="popover" role="tooltip">' + '<div class="arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
+    template: '<div class="popover" role="tooltip">' + '<div class="arrow"></div>' + '<h3 class="popover-menu.blade.php"></h3>' + '<div class="popover-body"></div></div>'
   });
 
   var DefaultType$2 = _extends$1({}, Tooltip.DefaultType, {
