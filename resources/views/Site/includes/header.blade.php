@@ -13,7 +13,7 @@
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="{{ url('Site/css/style.css') }}" />
 
-    <title>Responsive burger website - Bedimcode</title>
+    <title>Burguer</title>
 </head>
 <body>
     <!--==================== HEADER ====================-->
@@ -23,7 +23,6 @@
                 <div>
                     <img src="{{ url('Site/images/logo-burger.svg') }}" alt="image" />
                 </div>
-
                 Burguer
             </a>
 
@@ -32,19 +31,15 @@
                     <li>
                         <a href="#home" class="nav__link">Home</a>
                     </li>
-
                     <li>
                         <a href="#recipe" class="nav__link">Receita</a>
                     </li>
-
                     <li>
                         <a href="#popular" class="nav__link">Famosos</a>
                     </li>
-
                     <li>
                         <a href="#delivery" class="nav__link">Delivery</a>
                     </li>
-
                     <li>
                         <a href="#contact" class="nav__link">Contato</a>
                     </li>

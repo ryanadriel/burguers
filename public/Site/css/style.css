@@ -117,22 +117,23 @@ img {
 }
 
 /*=============== HEADER & NAV ===============*/
-.header {
+
+.header{
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     background-color: var(--body-color);
     z-index: var(--z-fixed);
-    transition: box-shadow 0.4s;
+    transition: box-shadow .4s;
 }
 
 .nav {
     position: relative;
     height: var(--header-height);
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .nav__logo {
@@ -162,22 +163,175 @@ img {
 }
 
 /* Navigation for mobile devices */
+@media screen  and (max-width: 1150px) {
+    .nav__menu{
+        position: fixed;
+        top: -100%;
+        left: 0;
+        background-color: var(--body-color);
+        width: 100%;
+        padding-block: 4.5rem 3.5rem;
+        box-shadow: 0 4px 16px hsla(22, 100%, 8%, .2);
+        transition: top .4s;
+    }
+}
 
+.nav__list{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.nav__link{
+    position: relative;
+    color: var(--title-color);
+    font-family: var(--second-font);
+}
+
+.nav__link::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: var(--first-color);
+    position: absolute;
+    left: 0;
+    bottom: -.5rem;
+    transition: width .3s;
+}
+
+.nav__link:hover::after{
+    width: 60%;
+}
+
+.nav__close{
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+}
 
 /* Show menu */
-
+.show-menu{
+    top: 0;
+}
 
 /* Add shadow header */
-
+.shadow-header{
+    box-shadow: 0 4px 16px hsla(22, 100%, 8%, .2);
+}
 
 /* Active link */
 
 
 /*=============== HOME ===============*/
+.home__container{
+    padding-block: 3rem 2rem;
+    justify-content: center;
+    row-gap: 3.5rem;
+}
 
+.home__data{
+    position: relative;
+    text-align: center;
+}
+
+.home__title{
+    font-size: var(--biggest-font-size);
+    margin-bottom: 1rem;
+}
+
+.home__description{
+    margin-bottom: 2.5rem;
+}
+
+.home__sticker{
+    width: 40px;
+    rotate: 15deg;
+    position: absolute;
+    bottom: 2rem;
+    right: 1rem;
+    opacity: .5;
+}
+
+.home__images{
+    position: relative;
+    display: grid;
+    justify-items: center;
+    justify-self: center;
+}
+
+.home__ingredient{
+    width: 60px;
+    filter: var(--shadow-small-img);
+    position: absolute;
+    z-index: 2;
+}
+
+.home__burger,
+.home__dish{
+    filter: var(--shadow-big-img);
+}
+
+.home__burger{
+    width: 280px;
+    z-index: 2;
+}
+
+.home__dish{
+    max-width: initial;
+    width: 320px;
+    position: absolute;
+    bottom: -2.5rem;
+}
+
+.home__potato-1{
+    left: -1rem;
+    top: .75rem;
+}
+
+.home__potato-2{
+    right: -.75rem;
+    bottom: -2rem;
+    rotate: 90deg;
+}
+
+.home__tomato-1{
+    width: 40px;
+    top: -1rem;
+    right: 6rem;
+}
+
+.home__tomato-2{
+    width: 40px;
+    left: 5.5rem;
+    bottom: -1.5rem;
+}
+
+.home__lettuce-1{
+    top: 2.5rem;
+    right: -2rem;
+    transform: scaleX(-1);
+}
+
+.home__lettuce-2{
+    left: -2rem;
+    bottom: 1rem;
+}
 
 /*=============== BUTTON ===============*/
+.button{
+    display: inline-flex;
+    background-color: var(--first-color);
+    color: var(--title-color);
+    padding: 1rem 1.5rem;
+    font-family: var(--second-font);
+    border-radius: 4rem;
+    transition: box-shadow .4s;
+}
 
+.button:hover{
+    box-shadow: 0 8px 24px hsla(22, 100%, 8%, .2);
+}
 
 /*=============== RECIPE ===============*/
 

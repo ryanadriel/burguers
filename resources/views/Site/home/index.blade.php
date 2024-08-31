@@ -1,11 +1,9 @@
 {{-- INCLUDE HEADER --}}
 @include('Site.includes.header')
+<main class="main">
 
-{{-- INCLUDE BANNER --}}
-@include('Site.banner.index')
+    @include('Site.banner.index')
 
-{{-- INCLUDE CONTACT --}}
-@include('Site.contact.index')
-
+</main>
 {{-- INCLUDE FOOTER --}}
 @include('Site.includes.footer')

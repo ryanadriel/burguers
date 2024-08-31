@@ -1,6 +1,3 @@
-<footer class="footer">
-
-</footer>
 
 <!--========== SCROLL UP ==========-->
 
@@ -9,6 +6,6 @@
 <script src=""></script>
 
 <!--=============== MAIN JS ===============-->
-<script src="assets/js/main.js"></script>
+<script src="{{url('Site/js/script.js')}}"></script>
 </body>
 </html>
