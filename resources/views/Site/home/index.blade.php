@@ -4,6 +4,8 @@
 
     @include('Site.banner.index')
 
+    @include('Site.recipe.index')
+
 </main>
 {{-- INCLUDE FOOTER --}}
 @include('Site.includes.footer')
