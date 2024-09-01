@@ -6,6 +6,8 @@
 
     @include('Site.recipe.index')
 
+    @include('Site.popular.index')
+
 </main>
 {{-- INCLUDE FOOTER --}}
 @include('Site.includes.footer')
