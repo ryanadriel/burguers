@@ -1,5 +1,5 @@
 <section class="popular section" id="popular">
-    <h2 class="popular__title">O Mais devorado dos Burguers</h2>
+    <h2 class="section__title">Os Mais devorados dos Burguers</h2>
 
     <div class="popular__container container grid">
         <article class="popular__card">
