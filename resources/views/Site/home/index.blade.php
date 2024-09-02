@@ -8,6 +8,8 @@
 
     @include('Site.popular.index')
 
+    @include('Site.delivery.index')
+
 </main>
 {{-- INCLUDE FOOTER --}}
 @include('Site.includes.footer')
