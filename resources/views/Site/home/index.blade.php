@@ -10,6 +10,8 @@
 
     @include('Site.delivery.index')
 
+    @include('Site.contact.index')
+
 </main>
 {{-- INCLUDE FOOTER --}}
 @include('Site.includes.footer')
