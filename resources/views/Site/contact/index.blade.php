@@ -26,11 +26,10 @@
                     </address>
                 </div>
                 <div>
-                    <h3 class="contact__title"></h3>
+                    <h3 class="contact__title">Endereço</h3>
                     <address class="contact__info">
-                        Rua Haddock Lobo, 1240 - Jardim Paulista,
+                        Rua Haddock, 1240 - Paulista,<br>
                         São Paulo - 01414-002
-
                     </address>
                 </div>
             </div>
@@ -39,6 +38,6 @@
             </div>
         </div>
         <img src="{{url('Site/images/sticker-burger.svg')}}" alt="image" class="contact__sticker-1" />
-        <img src="{{url('Site/images/sticker-soda.svg')}}" alt="image" class="contact__sticker-1" />
+        <img src="{{url('Site/images/sticker-soda.svg')}}" alt="image" class="contact__sticker-2" />
     </div>
 </section>
