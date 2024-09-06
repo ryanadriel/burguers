@@ -28,6 +28,10 @@
     </span>
 </footer>
 
+<!--=============== SCROLL UP ===============-->
+<a href="#" class="scrollup" id="scrollup">
+    <i class="ri-arrow-up-line"></i>
+</a>
 
 <!--=============== SCROLLREVEAL ===============-->
 <script src=""></script>
