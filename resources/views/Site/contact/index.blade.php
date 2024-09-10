@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="contact__image">
-                <img src="{{url('Site/images/contact-man.png')}}" alt="image" class="contact__image"/>
+                <img src="{{url('Site/images/contact-man.png')}}" alt="image" class="contact__img" />
             </div>
         </div>
         <img src="{{url('Site/images/sticker-burger.svg')}}" alt="image" class="contact__sticker-1" />
