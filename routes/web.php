@@ -18,17 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+
+
 Route::group(['namespace' => 'System', 'prefix' => 'system', 'middleware' => 'auth'], function () {
-
-    // Dashboard Route
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
-    // Admin Profile Routes
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
   //Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
@@ -40,5 +32,3 @@ Route::group(['namespace' => 'System', 'prefix' => 'system', 'middleware' => 'au
 
     Route::resource('orders', 'OrderController');
 });
-
-require __DIR__.'/auth.php';
