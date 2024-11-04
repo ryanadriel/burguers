@@ -23,7 +23,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 
-Route::group(['namespace' => 'System', 'prefix' => 'system', 'middleware' => 'Auth'], function () {
+Route::group(['namespace' => 'System', 'prefix' => 'system', 'middleware' => 'auth'], function () {
 
 
   //Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');

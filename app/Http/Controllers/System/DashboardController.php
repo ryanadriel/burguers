@@ -9,5 +9,6 @@ class DashboardController extends StandardController
 {
     protected $title = "Dashboard";
     protected $route = "dashboard";
-    protected $view = "system.dashboard.";
+    protected $view = "system.dashboard";
+
 }
