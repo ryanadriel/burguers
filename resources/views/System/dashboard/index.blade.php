@@ -1,1 +1,5 @@
-<h2>Voce esta logado</h2>
+@extends('System.layout.template')
+
+@section('content')
+<h2>Voce esta no Dashboard</h2>
+@endsection

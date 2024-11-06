@@ -86,16 +86,15 @@
 </head>
 <body>
 <div class="order-board">
+    @foreach ($orders as $order)
     <div class="order-column" id="received">
         <h3>Recebido</h3>
         <div class="order-list" id="received-list">
-            @foreach ($orders as $order)
-                <div class="order-item">
+                <div class="order-item" draggable="true" data-id="{{ $order->id }}">
                     <p>Pedido #{{ $order->id }}</p>
                     <p>Cliente: {{ $order->cliente_nome }}</p>
                     <p>Status: {{ $order->status }}</p>
                 </div>
-            @endforeach
         </div>
     </div>
 
@@ -103,7 +102,7 @@
         <h3>Em Preparo</h3>
         <div class="order-list" id="preparing-list">
 
-<!-- Corrigir bug, um card pode estar se fundindo a outro card -->
+        <!-- Corrigir bug, um card pode estar se fundindo a outro card -->
         </div>
     </div>
 
@@ -120,6 +119,7 @@
             <!-- Pedidos com status "Entregue" vão aqui -->
         </div>
     </div>
+    @endforeach
 </div>
 <script>
     document.querySelectorAll('.order-item').forEach(item => {

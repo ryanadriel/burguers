@@ -49,8 +49,6 @@ Route::group(['namespace' => 'System', 'prefix' => 'system'], function () {
 
 });
 
-
-
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 
