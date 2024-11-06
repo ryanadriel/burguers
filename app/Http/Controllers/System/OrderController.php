@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\System;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\System\OrderFormRequest;
-use App\Models\Order;
-use Illuminate\Http\Request;
+use App\Models\System\Order;
 
 class OrderController extends StandardController
 {

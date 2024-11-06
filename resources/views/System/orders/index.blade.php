@@ -89,16 +89,20 @@
     <div class="order-column" id="received">
         <h3>Recebido</h3>
         <div class="order-list" id="received-list">
-            <!-- Pedidos com status "Recebido" vão aqui -->
+            @foreach ($orders as $order)
+                <div class="order-item">
+                    <p>Pedido #{{ $order->id }}</p>
+                    <p>Cliente: {{ $order->cliente_nome }}</p>
+                    <p>Status: {{ $order->status }}</p>
+                </div>
+            @endforeach
         </div>
     </div>
 
     <div class="order-column" id="preparing">
         <h3>Em Preparo</h3>
         <div class="order-list" id="preparing-list">
-            <div class="order-item" draggable="true" data-id="1">
-                faafsasfdsdadsdsadsdasadsads
-            </div>
+
 <!-- Corrigir bug, um card pode estar se fundindo a outro card -->
         </div>
     </div>

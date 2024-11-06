@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\System;
 
 use App\Http\Controllers\Controller;
+use App\Models\System\Order;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
@@ -24,8 +25,10 @@ class StandardController extends Controller
 
          # ROTA DA PÁGINA
          $route = $this->route;
+        $orders = Order::all();
 
-         return view("{$this->view}.index", compact("title", "route"));
+
+         return view("{$this->view}.index", compact("title", "route", "orders"));
 
     }
 }
