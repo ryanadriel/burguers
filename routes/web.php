@@ -45,12 +45,11 @@ Route::group(['namespace' => 'System', 'prefix' => 'system'], function () {
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
     Route::resource('orders', 'OrderController');
-
+    Route::put('/orders/{order}/status', [OrderController::class, 'OrderController@updateStatus'])->name('orders.updateStatus');
 
 });
 
 
-Route::put('/orders/{order}/status', [OrderController::class, 'OrderController@updateStatus'])->name('orders.updateStatus');
 
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
