@@ -35,15 +35,7 @@ Route::group(['namespace' => 'System', 'prefix' => 'system'], function () {
     Route::resource('category', 'CategoryController');
 
     Route::resource('orders', 'OrderController');
-
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-    Route::post('/users', [UserController::class, 'store'])->name('users.store');
-    Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
-    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
-    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
-    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
-
+    Route::resource('users', 'UserController');
     Route::resource('orders', 'OrderController');
     Route::put('/orders/{order}/status', [OrderController::class, 'OrderController@updateStatus'])->name('orders.updateStatus');
 
