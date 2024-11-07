@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\System\DashboardController;
 use App\Http\Controllers\System\OrderController;
 use App\Http\Controllers\System\UserController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,7 @@ Route::group(['namespace' => 'System', 'prefix' => 'system'], function () {
 
   //System Routes
     Route::resource('dashboard', 'DashboardController');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     Route::resource('category', 'CategoryController');
 

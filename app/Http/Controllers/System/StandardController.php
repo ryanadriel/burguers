@@ -25,10 +25,9 @@ class StandardController extends Controller
 
          # ROTA DA PÁGINA
          $route = $this->route;
-        $orders = Order::all();
 
 
-         return view("{$this->view}.index", compact("title", "route", "orders"));
+         return view("{$this->view}.index", compact("title", "route"));
 
     }
 }
