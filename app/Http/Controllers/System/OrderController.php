@@ -7,7 +7,7 @@ use App\Models\System\Order;
 
 class OrderController extends StandardController
 {
-    protected $order;
+    protected $orders;
     protected $title = "Pedidos";
     protected $route = "orders";
 
@@ -15,7 +15,14 @@ class OrderController extends StandardController
 
     public function __construct(Order $order)
     {
-        $this->order = $order;
+        $this->orders = $order;
+    }
+
+    public function index()
+    {
+        $orders = $this->orders->all();
+
+        return view('system.orders.index', compact('orders'));
     }
 
     public function store(OrderFormRequest $request)

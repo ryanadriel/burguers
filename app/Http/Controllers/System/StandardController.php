@@ -26,7 +26,6 @@ class StandardController extends Controller
          # ROTA DA PÁGINA
          $route = $this->route;
 
-
          return view("{$this->view}.index", compact("title", "route"));
 
     }
